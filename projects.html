@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>專案｜賀震</title>
+<meta name="description" content="賀震的專案：研究導向的 AI 專案、競賽作品、系統與軟體工程。">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">賀震 <span class="note">臺科大資工・大二</span></a>
+    <nav class="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="projects.html" aria-current="page">專案</a></li>
+        <li><a href="experience.html">經歷</a></li>
+        <li><a href="index.html#contact">聯絡</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap page-head">
+  <h1>做過的專案</h1>
+  <p class="lead">依性質分成三組。前三個有詳細頁，寫了架構、量測結果，以及目前還做不到的地方。</p>
+  <p class="lead disclosure">以 Claude Code、Codex 等 AI 代理協作開發，本人負責需求、架構設計、實驗設計與驗收。</p>
+</div>
+
+<section class="section" aria-labelledby="g1">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="g1">主要專案</h2><p class="note">架構・量測・限制</p></div>
+    <div class="grid three">
+      <article class="card">
+        <p class="note kind">2026-11・340 commits</p>
+        <h3><a href="projects/game-agent.html">遊戲代理</a></h3>
+        <p>LLM 代理透過 MCP 伺服器操作一款回合制自走棋類遊戲。畫面辨識分類模型的訓練、評估、離線影格重放與資料集標註都自己做。</p>
+        <ul class="tags"><li>Python</li><li>MCP</li><li>ONNX</li><li>OpenCV</li></ul>
+        <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
+      </article>
+      <article class="card">
+        <p class="note kind">2026-10 起・389 commits</p>
+        <h3><a href="projects/lecture-tool.html">上課紀錄工具</a></h3>
+        <p>macOS／iOS 錄音 App 加 Python 伺服器。本機 Qwen3-ASR 轉寫，AI 對照 Moodle 講義整理上課紀錄。</p>
+        <ul class="tags"><li>Swift／SwiftUI</li><li>Python</li><li>Qwen3-ASR</li></ul>
+        <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
+      </article>
+      <article class="card">
+        <p class="note kind">兼職・2026.07 – 2026.09</p>
+        <h3><a href="projects/internal-systems.html">大金防火科技 內部系統</a></h3>
+        <p>報價、寄信、圖說、詢價、工務、會計等七個內部網頁系統，部署在公司 Windows 主機。</p>
+        <ul class="tags"><li>FastAPI</li><li>React／TypeScript</li><li>PWA</li></ul>
+        <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="g2">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="g2">競賽作品</h2><p class="note">2026</p></div>
+    <div class="stack">
+      <article class="card plain" id="v2x">
+        <div class="stack">
+        <p><span class="flag">決賽入圍</span></p>
+        <h3>5G-V2X 路口大車右轉內輪差預警</h3>
+        <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，五人隊，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
+        <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li></ul>
+        </div>
+      </article>
+      <article class="card plain">
+        <p><span class="flag">大專組 優勝第五名</span></p>
+        <h3>AI Monster 未來生存挑戰賽</h3>
+        <p>2026 年，三人隊。作品包含「先一步」Demo 網頁與「安心伴 CareBot」簡報，主要負責 Demo 網頁與簡報。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="g3">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="g3">研究導向</h2><p class="note">有量測、有對照</p></div>
+    <ul class="plist">
+      <li>
+        <h3>自動化交易研究平台 <span class="note">2026-05 起・573 commits</span></h3>
+        <p>幣安 Demo／Testnet 上的交易代理，常駐在 Windows 主機。做離線回測、隨機對照、前向紙上交易與多重比較控管；判斷標準事先登記，再看結果。</p>
+      </li>
+      <li>
+        <h3>crypto-forecast-lab <span class="flag warn">已封存</span></h3>
+        <p>用 LSTM／GRU 做價格預測與交易結果模型。前向驗證不成立，依證據封存。</p>
+      </li>
+      <li>
+        <h3>本地大模型實測 <span class="note">2026-11</span></h3>
+        <p>在 Mac 與 RTX 4060 筆電上跑 Qwen3.6-35B-A3B：量化、MTP、多模態，以及 llama.cpp RPC 跨機推論。附 bench 工具，用固定 12 題題組評分。</p>
+      </li>
+      <li>
+        <h3>AI 拍照 <span class="note">2026-11</span></h3>
+        <p>XIAO ESP32S3 相機韌體、BLE 協定與 iOS／watchOS App，拍下的影像由 Claude 分析。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="g4">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="g4">系統與軟體工程</h2><p class="note">Web・iOS・後端</p></div>
+    <div class="split">
+      <div class="stack">
+        <div class="phones">
+          <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數"><figcaption>驗光國考錯題本：今日複習</figcaption></figure>
+          <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元"><figcaption>單科成績與弱點分析</figcaption></figure>
+        </div>
+      </div>
+      <ul class="plist">
+        <li>
+          <h3>驗光國考錯題本 <span class="note">2026-10 起・473 commits</span></h3>
+          <p>爬取考選部歷屆試題轉成題庫；SwiftUI iOS App（錯題本、間隔重複、弱點分析）加 AI 出題解析伺服器，出題經重算與抽樣稽核。透過 TestFlight 給朋友使用。</p>
+        </li>
+        <li>
+          <h3>Course Compass 修課羅盤 <span class="note">2025-12 起・327 commits</span></h3>
+          <p>臺科大課程與學分規劃。React／Vite Web（Vercel）、SwiftUI iOS、FastAPI 後端、Supabase。</p>
+        </li>
+        <li>
+          <h3>冷氣控制</h3>
+          <p>逆向家用冷氣的雲端 API，自建資料採集（SQLite）、規則控制服務與 Mac 選單列 App。</p>
+        </li>
+        <li>
+          <h3>macbackup</h3>
+          <p>restic 加密備份到兩處、append-only；還原時抽樣做 SHA-256 比對。</p>
+        </li>
+        <li>
+          <h3>手指機器人 BLE 逆向 <span class="flag warn">研究未完成</span></h3>
+          <p>封包擷取、ATT 寫入整理，以及 bleak 探測腳本。</p>
+        </li>
+        <li>
+          <h3>早期作品</h3>
+          <p>2022 年寫的 Python 股價查詢小程式；向 BambuStudio 提交繁體中文翻譯 PR。</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="foot-links">
+      <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
+      <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

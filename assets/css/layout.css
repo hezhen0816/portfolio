@@ -1,0 +1,78 @@
+/* layout.css — page frame: header, main sections, grids, footer */
+.wrap { width: 100%; max-width: calc(var(--wrap) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* header */
+.site-head { border-bottom: 1px solid var(--line-strong); background: var(--paper); }
+.site-head .wrap { display: flex; align-items: stretch; justify-content: space-between; gap: 8px; }
+.brand {
+  display: flex; align-items: center; gap: 10px; min-height: 56px;
+  color: var(--ink); text-decoration: none; font-weight: 600; font-size: 1.125rem; letter-spacing: 0.08em;
+}
+.brand .note { display: none; }
+.site-nav ul { display: flex; height: 100%; }
+.site-nav a {
+  display: flex; align-items: center; min-height: 56px; min-width: 44px; padding: 0 14px;
+  color: var(--ink); text-decoration: none; font-size: 1rem;
+  border-bottom: 3px solid transparent; border-top: 3px solid transparent;
+}
+.site-nav a:hover { color: var(--blue); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--blue); color: var(--blue); font-weight: 600; }
+@media (min-width: 640px) {
+  .brand .note { display: inline; }
+  .site-nav a { padding: 0 20px; }
+}
+
+/* sections */
+.section { padding-block: calc(var(--step) * 0.5); }
+.section + .section { padding-top: calc(var(--step) * 0.35); }
+.page-head { padding-block: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 40px); }
+.page-head h1 { font-size: clamp(1.9rem, 4.6vw, 2.9rem); }
+.page-head .lead { margin-top: 16px; }
+.crumb { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 6px; text-decoration: none; }
+.crumb:hover { text-decoration: underline; }
+
+/* section heading: a dimension line with end ticks */
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; position: relative; padding-top: 18px; margin-bottom: 28px; border-top: 1px solid var(--line-strong); }
+.sec-head::before, .sec-head::after { content: ""; position: absolute; top: -6px; width: 1px; height: 11px; background: var(--line-strong); }
+.sec-head::before { left: 0; }
+.sec-head::after { right: 0; }
+
+/* grids */
+.grid { display: grid; gap: 20px; }
+@media (min-width: 720px) {
+  .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; }
+  .split.even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.split > * + * { margin-top: 24px; }
+@media (min-width: 720px) { .split > * + * { margin-top: 0; } }
+.stack > * + * { margin-top: 16px; }
+.stack-lg > * + * { margin-top: 32px; }
+
+/* hero */
+.hero { padding-block: clamp(36px, 6vw, 80px) clamp(28px, 4vw, 48px);
+  background-image:
+    linear-gradient(to right, rgba(20,26,33,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20,26,33,.045) 1px, transparent 1px);
+  background-size: 32px 32px; background-position: center top;
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid { display: grid; gap: 28px; }
+.hero h1 { margin-block: 14px 20px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-side { display: grid; gap: 16px; grid-template-columns: 104px minmax(0, 1fr); align-items: start; }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: center; }
+  .hero-side { grid-template-columns: 1fr; align-items: start; }
+}
+
+/* footer */
+.site-foot { margin-top: var(--step); border-top: 1px solid var(--line-strong); padding-block: 28px 40px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; align-items: center; }
+.site-foot a { display: inline-flex; align-items: center; min-height: 44px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.sec-head > a { display: inline-flex; align-items: center; min-height: 44px; }
+.brand { min-width: 44px; }
+@media (max-width: 639px) { .site-nav a { padding: 0 9px; } }
+.hero h1 { font-size: clamp(2.1rem, 5.6vw, 3.6rem); letter-spacing: 0.02em; }

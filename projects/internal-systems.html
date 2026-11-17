@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大金防火科技 內部系統｜賀震</title>
+<meta name="description" content="兼職期間為大金防火科技做的七個內部網頁系統：架構、圖說自動化、工務管控、詢價系統與限制。">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">賀震 <span class="note">臺科大資工・大二</span></a>
+    <nav class="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="../index.html">首頁</a></li>
+        <li><a href="../projects.html" aria-current="page">專案</a></li>
+        <li><a href="../experience.html">經歷</a></li>
+        <li><a href="../index.html#contact">聯絡</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article>
+<div class="wrap page-head">
+  <a class="crumb" href="../projects.html">← 專案</a>
+  <p class="note">兼職・2026.07 – 2026.09</p>
+  <h1>大金防火科技 內部系統</h1>
+  <p class="lead">把報價、寄信、圖說、詢價、工務、會計等原本靠人工與 Excel 的作業，做成公司內部的網頁系統，給同事與工務主任使用。</p>
+  <ul class="tags" style="margin-top:20px"><li>Python</li><li>FastAPI</li><li>React／TypeScript</li><li>ezdxf</li><li>openpyxl</li><li>PWA</li><li>NSSM</li></ul>
+</div>
+
+<div class="wrap stack-lg">
+  <section class="split" aria-labelledby="arch">
+    <div class="stack">
+      <h2 id="arch">架構</h2>
+      <p>七個獨立專案，在公司的 Windows 主機上以服務常駐。資料每晚加密備份到 NAS。</p>
+      <p class="muted" style="font-size:.9375rem">圖中的長條是各子專案的 commit 數，幾乎都是我提交的。</p>
+    </div>
+    <div>
+      <figure class="diagram">
+        <p class="dg-head">七個獨立專案・公司 Windows 主機常駐</p>
+        <ul class="bars" aria-label="各子專案的 commit 數">
+          <li class="pick"><span class="name">報價</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="v num">617</span></li>
+          <li><span class="name">工務管控</span><span class="track"><span class="fill" style="--v:.4927"></span></span><span class="v num">304</span></li>
+          <li><span class="name">會計</span><span class="track"><span class="fill" style="--v:.1637"></span></span><span class="v num">101</span></li>
+          <li><span class="name">寄信</span><span class="track"><span class="fill" style="--v:.1621"></span></span><span class="v num">100</span></li>
+          <li><span class="name">圖說</span><span class="track"><span class="fill" style="--v:.154"></span></span><span class="v num">95</span></li>
+          <li><span class="name">展開</span><span class="track"><span class="fill" style="--v:.0746"></span></span><span class="v num">46</span></li>
+          <li><span class="name">詢價</span><span class="track"><span class="fill" style="--v:.0713"></span></span><span class="v num">44</span></li>
+        </ul>
+        <p class="dg-foot">資料每晚加密備份 → NAS</p>
+        <figcaption class="visually-hidden">七個子專案與各自的 commit 數</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="split" aria-labelledby="dwg">
+    <div class="stack">
+      <h2 id="dwg">圖說自動化</h2>
+      <p>輸入報價單與建築圖，輸出防火門的樓層明細表與標註平面圖。</p>
+      <div class="measure"><p class="val">34 <small>樘</small></p><p class="cap">在公司主機以實案完整試跑，明細表與標註圖和既有人工成品相符</p></div>
+    </div>
+    <ol class="flow">
+      <li><span class="n" aria-hidden="true"></span><strong>讀入報價單 xlsx 與建築圖 DWG</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>解析標號與樓層</strong></li>
+      <li class="human"><span class="n" aria-hidden="true"></span><strong>人工複核</strong><span class="d">程式解析完，由人確認後才產出</span></li>
+      <li><span class="n" aria-hidden="true"></span><strong>產出樓層明細表</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>產出規格表拉線標註的平面圖</strong></li>
+    </ol>
+  </section>
+
+  <section class="split" aria-labelledby="site">
+    <div class="stack">
+      <h2 id="site">工務管控</h2>
+      <p>把原本的 Excel 管控表改成系統，現場用手機網頁操作。</p>
+    </div>
+    <ul class="dots">
+      <li>拍照丈量回報，可在照片上標註，照片自動歸檔。</li>
+      <li>收訊不好時照片先存在手機，恢復連線後自動補傳。</li>
+      <li>選手機網頁而不做 App 的原因：免費開發者簽章每 7 天就失效。</li>
+    </ul>
+  </section>
+
+  <section class="split" aria-labelledby="rfq">
+    <div class="stack">
+      <h2 id="rfq">詢價系統</h2>
+      <p>「規則建議」這一步是用事先寫好的規則比對出來的，不呼叫 AI 模型，所以沒有 API 費用。</p>
+      <p class="muted" style="font-size:.9375rem">另外，寄信系統管理推廣信與退訂名單。</p>
+    </div>
+    <ol class="flow">
+      <li><span class="n" aria-hidden="true"></span><strong>上傳</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>解析成初稿</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>表格編輯</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>規則建議</strong></li>
+      <li><span class="n" aria-hidden="true"></span><strong>產出詢價單</strong></li>
+    </ol>
+  </section>
+
+  <section class="limits" aria-labelledby="lim">
+    <h2 id="lim">目前的限制</h2>
+    <ul>
+      <li>圖說的複核步驟還沒有經過同事實際使用驗證。</li>
+      <li>工務的手機網頁還待工務主任實機驗證。</li>
+      <li>展開自動化沒有經過實際折床校正。</li>
+    </ul>
+  </section>
+
+  <nav class="pager" aria-label="其他專案">
+    <a href="lecture-tool.html">← 上一個：上課紀錄工具</a>
+    <a href="../projects.html">全部專案 →</a>
+  </nav>
+</div>
+</article>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="foot-links">
+      <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
+      <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

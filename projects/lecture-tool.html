@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>上課紀錄工具｜賀震</title>
+<meta name="description" content="上課錄音自動轉逐字稿並對照講義整理成上課紀錄：架構、轉寫模型比較與限制。">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">賀震 <span class="note">臺科大資工・大二</span></a>
+    <nav class="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="../index.html">首頁</a></li>
+        <li><a href="../projects.html" aria-current="page">專案</a></li>
+        <li><a href="../experience.html">經歷</a></li>
+        <li><a href="../index.html#contact">聯絡</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article>
+<div class="wrap page-head">
+  <a class="crumb" href="../projects.html">← 專案</a>
+  <h1>上課紀錄工具</h1>
+  <p class="lead">上課錄音自動轉成逐字稿，再對照當週 Moodle 講義整理成上課紀錄。轉寫在自己的 GPU 主機上跑，錄音不上傳第三方。</p>
+  <ul class="tags" style="margin-top:20px"><li>Swift／SwiftUI</li><li>Python</li><li>Qwen3-ASR</li><li>Claude API</li><li>Moodle 爬取</li></ul>
+</div>
+
+<div class="wrap stack-lg">
+  <section class="split" aria-labelledby="arch">
+    <div class="stack">
+      <h2 id="arch">架構</h2>
+      <div class="phones">
+        <figure><img src="../assets/img/lecture-recording.png" width="460" height="535" alt="上課紀錄工具 iOS 版的錄音畫面：課程名稱、計時 0:00:12、音量波形，以及暫停與停止並上傳按鈕"><figcaption>iOS 版：錄音中</figcaption></figure>
+        <figure><img src="../assets/img/lecture-notes.png" width="460" height="1000" alt="上課紀錄工具 iOS 版的上課紀錄畫面：分成重點整理、逐字稿、重要事項三個分頁，重點整理以條列與表格呈現"><figcaption>iOS 版：整理後的上課紀錄</figcaption></figure>
+      </div>
+    </div>
+    <div>
+      <ol class="flow">
+        <li><span class="n" aria-hidden="true"></span><strong>錄音</strong><span class="d">Mac 選單列 App</span></li>
+        <li><span class="n" aria-hidden="true"></span><strong>產生專有名詞提示詞</strong><span class="d">依當週講義</span></li>
+        <li><span class="n" aria-hidden="true"></span><strong>轉寫</strong><span class="d">家用 GPU 主機跑 Qwen3-ASR 1.7B</span></li>
+        <li><span class="n" aria-hidden="true"></span><strong>整理上課紀錄與重要事項</strong><span class="d">Claude 對照講義</span></li>
+        <li><span class="n" aria-hidden="true"></span><strong>通知</strong></li>
+      </ol>
+      <p class="flow-note">失敗時進補送佇列，每 30 分鐘重試。iOS 版經 HTTPS 上傳到同一台伺服器，可以續傳，並用 SHA-256 去除重複。</p>
+    </div>
+  </section>
+
+  <section class="split" aria-labelledby="meas">
+    <div class="stack">
+      <h2 id="meas">轉寫模型比較</h2>
+      <p>取 4 段各 3 分鐘的錄音，數 45 個關鍵詞中了幾個。</p>
+      <p><span class="flag warn">代理指標</span></p>
+      <p class="muted" style="font-size:.9375rem">沒有人工逐字稿，所以這不是字錯率，只能看關鍵詞有沒有被聽對。</p>
+    </div>
+    <div>
+      <ul class="bars" aria-label="各轉寫模型在 45 個關鍵詞中的命中數">
+        <li class="ref"><span class="name">Gemini（雲端）</span><span class="track"><span class="fill" style="--v:.9778"></span></span><span class="v num">44/45</span></li>
+        <li class="pick"><span class="name">Qwen3-ASR 1.7B</span><span class="track"><span class="fill" style="--v:.8667"></span></span><span class="v num">39/45</span></li>
+        <li><span class="name">Qwen3-ASR 0.6B</span><span class="track"><span class="fill" style="--v:.8222"></span></span><span class="v num">37/45</span></li>
+        <li><span class="name">FireRedASR2</span><span class="track"><span class="fill" style="--v:.7111"></span></span><span class="v num">32/45</span></li>
+        <li><span class="name">Breeze</span><span class="track"><span class="fill" style="--v:.6889"></span></span><span class="v num">31/45</span></li>
+        <li><span class="name">Fun-ASR-Nano</span><span class="track"><span class="fill" style="--v:.6"></span></span><span class="v num">27/45</span></li>
+      </ul>
+      <p class="flow-note">雲端的 Gemini 命中最多，但我不想把上課錄音上傳到第三方，所以留用本機模型裡最好的 Qwen3-ASR 1.7B（藍色）。</p>
+    </div>
+  </section>
+
+  <section class="limits" aria-labelledby="lim">
+    <h2 id="lim">目前的限制</h2>
+    <ul>
+      <li>沒有人工逐字稿，比較只能用關鍵詞命中當代理指標。</li>
+      <li>數字與專有名詞偶爾會轉錯。</li>
+      <li>iOS 版有部分實機項目還沒確認。</li>
+    </ul>
+  </section>
+
+  <nav class="pager" aria-label="其他專案">
+    <a href="game-agent.html">← 上一個：遊戲代理</a>
+    <a href="internal-systems.html">下一個：大金防火科技 內部系統 →</a>
+  </nav>
+</div>
+</article>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="foot-links">
+      <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
+      <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
