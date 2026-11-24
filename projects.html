@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>專案｜賀震</title>
-<meta name="description" content="賀震的專案：研究導向的 AI 專案、競賽作品、系統與軟體工程。">
+<meta name="description" content="賀震的專案：AI 與研究、iOS／Mac App、後端與自架服務、系統與工具、競賽與課程專案。">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
 <script src="assets/js/motion.js"></script>
+<script src="assets/js/projects.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
@@ -28,32 +30,36 @@
 <main id="main">
 <div class="wrap page-head">
   <h1>做過的專案</h1>
-  <p class="lead">依性質分成三組。前三個有詳細頁，寫了架構、量測結果，以及目前還做不到的地方。</p>
+  <p class="lead">共 24 項，依性質分成五類。前三個有詳細頁，寫了架構、量測結果，以及目前還做不到的地方。</p>
   <p class="lead disclosure">以 Claude Code、Codex 等 AI 代理協作開發：需求、架構與技術選擇、實驗設計與結果判讀由本人與 AI 討論後決定，程式碼主要由 AI 撰寫。</p>
+  <div class="filters" id="filters" role="group" aria-label="依類別篩選專案"></div>
 </div>
 
-<section class="section" aria-labelledby="g1">
+<section class="section cat-group" data-group="featured" data-label="" aria-labelledby="h-featured">
   <div class="wrap">
-    <div class="sec-head"><h2 id="g1">主要專案</h2><p class="note">架構・量測・限制</p></div>
-    <div class="grid three">
-      <article class="card">
+    <div class="sec-head"><h2 id="h-featured">主要專案</h2><p class="note">架構・量測・限制</p></div>
+    <div class="pgrid">
+      <article class="card" data-cat="ai">
         <p class="note kind">2026-11・340 commits</p>
         <h3><a href="projects/game-agent.html">遊戲代理</a></h3>
-        <p>LLM 代理透過 MCP 伺服器操作一款回合制自走棋類遊戲。畫面辨識分類模型的訓練、評估、離線影格重放與資料集標註都自己做。</p>
+        <p>LLM 代理透過 MCP 伺服器操作一款回合制自走棋類遊戲。畫面辨識分類模型的訓練、評估、離線影格重放與資料集標註都包含在內。</p>
+        <div class="measure"><p class="val">0.47 <small>秒</small></p><p class="cap">全畫面 OCR，原本 18～25 秒</p></div>
         <ul class="tags"><li>Python</li><li>MCP</li><li>ONNX</li><li>OpenCV</li></ul>
         <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
-      <article class="card">
+      <article class="card" data-cat="ai">
         <p class="note kind">2026-10 起・389 commits</p>
         <h3><a href="projects/lecture-tool.html">上課紀錄工具</a></h3>
         <p>macOS／iOS 錄音 App 加 Python 伺服器。本機 Qwen3-ASR 轉寫，AI 對照 Moodle 講義整理上課紀錄。</p>
+        <div class="measure"><p class="val">39/45</p><p class="cap">本機模型的關鍵詞命中（雲端對照 44/45）</p></div>
         <ul class="tags"><li>Swift／SwiftUI</li><li>Python</li><li>Qwen3-ASR</li></ul>
         <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
-      <article class="card">
+      <article class="card" data-cat="backend">
         <p class="note kind">兼職・2026.07 – 2026.09</p>
         <h3><a href="projects/internal-systems.html">大金防火科技 內部系統</a></h3>
         <p>報價、寄信、圖說、詢價、工務、會計等七個內部網頁系統，部署在公司 Windows 主機。</p>
+        <div class="measure"><p class="val">34 <small>樘</small></p><p class="cap">圖說自動化實案試跑，與人工成品相符</p></div>
         <ul class="tags"><li>FastAPI</li><li>React／TypeScript</li><li>PWA</li></ul>
         <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
@@ -61,90 +67,179 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="g2">
+<section class="section cat-group" data-group="ai" data-label="AI／研究" id="cat-ai" aria-labelledby="h-ai">
   <div class="wrap">
-    <div class="sec-head"><h2 id="g2">競賽作品</h2><p class="note">2026</p></div>
-    <div class="stack">
-      <article class="card plain" id="v2x">
+    <div class="sec-head"><h2 id="h-ai">AI／研究</h2><p class="note">LLM 代理・評估・本地推論</p></div>
+    <div class="pgrid">
+      <article class="card plain pc" data-cat="ai">
+        <p class="note kind">2026-05 起・573 commits</p>
+        <h3>自動化交易研究平台</h3>
+        <p>幣安 Demo／Testnet 上的交易代理，常駐在 Windows 主機。做離線回測、隨機對照、前向紙上交易與多重比較控管；判斷標準事先登記，再看結果。</p>
+        <ul class="tags"><li>回測</li><li>隨機對照</li><li>前向紙上交易</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="ai">
+        <p class="note kind">研究結果：前向驗證不成立</p>
+        <h3>crypto-forecast-lab</h3>
+        <p>用 LSTM／GRU 做價格預測與交易結果模型，再以前向驗證檢驗。結果是前向驗證不成立，照證據記錄為研究結論。</p>
+        <ul class="tags"><li>LSTM／GRU</li><li>前向驗證</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="ai">
+        <p class="note kind">2026-11</p>
+        <h3>本地大模型實測</h3>
+        <p>在 Mac 與 RTX 4060 筆電上跑 Qwen3.6-35B-A3B：量化、MTP、多模態，以及 llama.cpp RPC 跨機推論。附 bench 工具，用固定 12 題題組評分。</p>
+        <ul class="tags"><li>llama.cpp</li><li>量化</li><li>跨機推論</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="ai">
+        <p class="note kind">2026-11</p>
+        <h3>AI 拍照</h3>
+        <p>XIAO ESP32S3 相機韌體、BLE 協定與 iOS／watchOS App，拍下的影像由 Claude 分析。</p>
+        <ul class="tags"><li>ESP32S3</li><li>BLE</li><li>watchOS</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cat-group" data-group="app" data-label="iOS／Mac App" id="cat-app" aria-labelledby="h-app">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-app">iOS／Mac App</h2><p class="note">SwiftUI・TestFlight・原生 App</p></div>
+    <div class="pgrid">
+      <article class="card plain pc wide span-all" data-cat="app">
         <div class="stack">
+          <p class="note kind">2026-10 起・473 commits</p>
+          <h3>驗光國考錯題本</h3>
+          <p>爬取考選部歷屆試題轉成題庫；SwiftUI iOS App（錯題本、間隔重複、弱點分析）加 AI 出題解析伺服器，出題經重算與抽樣稽核。透過 TestFlight 給朋友使用。</p>
+          <ul class="tags"><li>SwiftUI</li><li>TestFlight</li><li>AI 出題</li></ul>
+        </div>
+        <div class="phones">
+          <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"><figcaption>今日複習</figcaption></figure>
+          <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"><figcaption>單科成績與弱點分析</figcaption></figure>
+        </div>
+      </article>
+      <article class="card plain pc" data-cat="app">
+        <p class="note kind">2025-12 起・327 commits</p>
+        <h3>Course Compass 修課羅盤</h3>
+        <p>臺科大課程與學分規劃。React／Vite Web（Vercel）、SwiftUI iOS、FastAPI 後端、Supabase。</p>
+        <ul class="tags"><li>React／Vite</li><li>SwiftUI</li><li>FastAPI</li><li>Supabase</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="app">
+        <p class="note kind">2026-11 起・116 commits</p>
+        <h3>班表鬧鐘</h3>
+        <p>讀 iPhone 行事曆裡的班表，用 AlarmKit 在上班前設定系統鬧鐘；班表變動時自動重設。透過 TestFlight 給自己與另一位使用者使用。</p>
+        <ul class="tags"><li>SwiftUI</li><li>AlarmKit</li><li>TestFlight</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="app">
+        <p class="note kind">2026-10 起・11 commits</p>
+        <h3>注音練字</h3>
+        <p>iPad App：看注音，用 Apple Pencil 在田字格寫 TOCFL 詞彙；寫錯的字進錯題本，以 FSRS-6 排複習。</p>
+        <ul class="tags"><li>SwiftData</li><li>PencilKit</li><li>FSRS-6</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="app">
+        <p class="note kind">2026-10 起・57 commits</p>
+        <h3>EpsonKit</h3>
+        <p>替 Epson L3110 補上 macOS 官方驅動缺少功能的原生 App：列印（含手動雙面拆頁、小冊子編排）、佇列與狀態、掃描、影印、維護。</p>
+        <ul class="tags"><li>macOS</li><li>原生 App</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cat-group" data-group="backend" data-label="後端與自架服務" id="cat-backend" aria-labelledby="h-backend">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-backend">後端與自架服務</h2><p class="note">Windows 主機・Tailscale</p></div>
+    <div class="pgrid">
+      <article class="card plain pc" data-cat="backend">
+        <p class="note kind">2026-09 起・67 commits</p>
+        <h3>回家時機：公車到站預測</h3>
+        <p>結合使用者位置、捷運行程與公車即時位置，自行預測公車到站，提示現在要趕還是可以再等。Python 服務部署在 Windows 主機，手機經 Tailscale HTTPS 使用。</p>
+        <ul class="tags"><li>Python</li><li>Tailscale</li><li>Windows 主機</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="backend">
+        <p class="note kind">2026-10 起・43 commits</p>
+        <h3>影片下載服務</h3>
+        <p>在 iPhone 網頁貼上影片連結，Windows 主機上的服務用 yt-dlp 與 ffmpeg 轉成單一 MP4，回傳後存入相簿。可產生限時公開分享連結（Tailscale Funnel），觀看頁顯示彈幕。</p>
+        <ul class="tags"><li>yt-dlp</li><li>ffmpeg</li><li>Tailscale Funnel</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="backend">
+        <p class="note kind">日立雲端 API 逆向</p>
+        <h3>冷氣控制</h3>
+        <p>逆向冷氣的雲端 API，建了資料採集（SQLite）、規則控制服務與 Mac 選單列 App。</p>
+        <ul class="tags"><li>SQLite</li><li>API 逆向</li><li>macOS 選單列</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cat-group" data-group="tools" data-label="系統與工具" id="cat-tools" aria-labelledby="h-tools">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-tools">系統與工具</h2><p class="note">備份・逆向・小工具</p></div>
+    <div class="pgrid">
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">2026-11・10 commits</p>
+        <h3>螢幕音量</h3>
+        <p>讓 HDMI／DisplayPort 外接螢幕在 macOS 能用系統音量鍵調音量。虛擬音訊驅動是 BlackHole 原始碼改名後建置（程式沒有改），專案本身的部分是 Swift 轉送程式（環形緩衝、路由決策），把聲音轉到螢幕。</p>
+        <ul class="tags"><li>Swift</li><li>BlackHole（改名建置）</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">加密備份</p>
+        <h3>macbackup</h3>
+        <p>restic 加密備份到兩處、append-only；還原時抽樣做 SHA-256 比對。</p>
+        <ul class="tags"><li>restic</li><li>SHA-256</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">2026-10・8 commits</p>
+        <h3>TR 教室空堂查詢</h3>
+        <p>用臺科大課程查詢系統的課表資料，判斷 TR 大樓教室在指定時間是否空堂。只用 Python 標準函式庫。</p>
+        <ul class="tags"><li>Python</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">2026-09 起・14 commits</p>
+        <h3>評分表自動計算</h3>
+        <p>把全國技能競賽金屬結構製作職類的評分標準表做成本機評分網頁：選手、裁判評分、自動計分與排名。</p>
+        <ul class="tags"><li>Node</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">BLE 協定分析</p>
+        <h3>手指機器人 BLE 逆向</h3>
+        <p>封包擷取、ATT 寫入整理，以及 bleak 探測腳本。</p>
+        <ul class="tags"><li>BLE</li><li>bleak</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">2022 起</p>
+        <h3>早期作品</h3>
+        <p>2022 年寫的 Python 股價查詢小程式；向 BambuStudio 提交的繁體中文翻譯 PR #9705 已於 2026-02-24 合併。</p>
+        <ul class="tags"><li>Python</li><li>開源貢獻</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cat-group" data-group="comp" data-label="競賽與課程" id="cat-comp" aria-labelledby="h-comp">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-comp">競賽與課程</h2><p class="note">2026・團隊</p></div>
+    <div class="pgrid">
+      <article class="card plain pc" id="v2x" data-cat="comp">
+        <p class="note kind">2026・5 人隊</p>
         <p><span class="flag">決賽入圍</span></p>
         <h3>5G-V2X 路口大車右轉內輪差預警</h3>
-        <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，五人隊，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
+        <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
         <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li></ul>
-        </div>
       </article>
-      <article class="card plain">
+      <article class="card plain pc" data-cat="comp">
+        <p class="note kind">2026・3 人隊</p>
         <p><span class="flag">大專組 優勝第五名</span></p>
         <h3>AI Monster 未來生存挑戰賽</h3>
-        <p>2026 年，三人隊。作品包含「先一步」Demo 網頁與「安心伴 CareBot」簡報，主要負責 Demo 網頁與簡報。</p>
+        <p>作品包含「先一步」Demo 網頁與「安心伴 CareBot」簡報，主要負責 Demo 網頁與簡報。</p>
+      </article>
+      <article class="card plain pc" data-cat="comp">
+        <p class="note kind">114-2・實習課成績 A+</p>
+        <h3>物件導向程式設計實習 團隊專案</h3>
+        <p>源石電路修復與五子棋兩個團隊專案，C++ 核心搭配 HTTP API 與 React 介面；我是主要負責人。</p>
+        <ul class="tags"><li>C++</li><li>HTTP API</li><li>React</li></ul>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="g3">
-  <div class="wrap">
-    <div class="sec-head"><h2 id="g3">研究導向</h2><p class="note">有量測、有對照</p></div>
-    <ul class="plist">
-      <li>
-        <h3>自動化交易研究平台 <span class="note">2026-05 起・573 commits</span></h3>
-        <p>幣安 Demo／Testnet 上的交易代理，常駐在 Windows 主機。做離線回測、隨機對照、前向紙上交易與多重比較控管；判斷標準事先登記，再看結果。</p>
-      </li>
-      <li>
-        <h3>crypto-forecast-lab <span class="flag warn">已封存</span></h3>
-        <p>用 LSTM／GRU 做價格預測與交易結果模型。前向驗證不成立，依證據封存。</p>
-      </li>
-      <li>
-        <h3>本地大模型實測 <span class="note">2026-11</span></h3>
-        <p>在 Mac 與 RTX 4060 筆電上跑 Qwen3.6-35B-A3B：量化、MTP、多模態，以及 llama.cpp RPC 跨機推論。附 bench 工具，用固定 12 題題組評分。</p>
-      </li>
-      <li>
-        <h3>AI 拍照 <span class="note">2026-11</span></h3>
-        <p>XIAO ESP32S3 相機韌體、BLE 協定與 iOS／watchOS App，拍下的影像由 Claude 分析。</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="g4">
-  <div class="wrap">
-    <div class="sec-head"><h2 id="g4">系統與軟體工程</h2><p class="note">Web・iOS・後端</p></div>
-    <div class="split">
-      <div class="stack">
-        <div class="phones">
-          <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數"><figcaption>驗光國考錯題本：今日複習</figcaption></figure>
-          <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元"><figcaption>單科成績與弱點分析</figcaption></figure>
-        </div>
-      </div>
-      <ul class="plist">
-        <li>
-          <h3>驗光國考錯題本 <span class="note">2026-10 起・473 commits</span></h3>
-          <p>爬取考選部歷屆試題轉成題庫；SwiftUI iOS App（錯題本、間隔重複、弱點分析）加 AI 出題解析伺服器，出題經重算與抽樣稽核。透過 TestFlight 給朋友使用。</p>
-        </li>
-        <li>
-          <h3>Course Compass 修課羅盤 <span class="note">2025-12 起・327 commits</span></h3>
-          <p>臺科大課程與學分規劃。React／Vite Web（Vercel）、SwiftUI iOS、FastAPI 後端、Supabase。</p>
-        </li>
-        <li>
-          <h3>冷氣控制</h3>
-          <p>逆向家用冷氣的雲端 API，自建資料採集（SQLite）、規則控制服務與 Mac 選單列 App。</p>
-        </li>
-        <li>
-          <h3>macbackup</h3>
-          <p>restic 加密備份到兩處、append-only；還原時抽樣做 SHA-256 比對。</p>
-        </li>
-        <li>
-          <h3>手指機器人 BLE 逆向 <span class="flag warn">研究未完成</span></h3>
-          <p>封包擷取、ATT 寫入整理，以及 bleak 探測腳本。</p>
-        </li>
-        <li>
-          <h3>早期作品</h3>
-          <p>2022 年寫的 Python 股價查詢小程式；向 BambuStudio 提交繁體中文翻譯 PR。</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
 </main>
 <footer class="site-foot">
   <div class="wrap">

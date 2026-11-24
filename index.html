@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>賀震｜臺科大資工大二・尋找大學部專題指導教授</title>
-<meta name="description" content="賀震，臺科大不分系學士班大二（分流資訊工程系）。第 47 屆國際技能競賽冷作職類國手、第 8 名，現在做 AI 代理與可重複的評估實驗。">
+<title>賀震｜臺科大資工大二・作品集</title>
+<meta name="description" content="賀震，臺科大不分系學士班大二（分流資訊工程系）。第 47 屆國際技能競賽冷作職類國手、第 8 名，做過 AI 代理、可重複的評估實驗，以及 iOS／Mac App 與自架服務。">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
 <script src="assets/js/motion.js"></script>
 </head>
 <body>
@@ -29,9 +30,9 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div>
-      <p class="note">大學部專題・自我介紹</p>
+      <p class="note">自我介紹</p>
       <h1 id="hero-title"><span class="nb">從冷作國手</span><span class="nb">到資訊工程</span></h1>
-      <p class="lead">我是賀震，臺科大 不分系學士班（分流資訊工程系）大二。高職念配管科，2024 年以冷作職類國手身分參加第 47 屆國際技能競賽（法國里昂），獲第 8 名。進大學後轉向寫程式，做了幾個實際在運作、也留有量測紀錄的 AI 系統，正在尋找大學部專題的指導教授。</p>
+      <p class="lead">我是賀震，臺科大 不分系學士班（分流資訊工程系）大二。高職念配管科，2024 年以冷作職類國手身分參加第 47 屆國際技能競賽（法國里昂），獲第 8 名。進大學後轉向寫程式，做了幾個實際在運作、也留有量測紀錄的 AI 系統，以及日常使用的 App 與自架服務。</p>
       <p class="hero-actions">
         <a class="btn" href="projects.html">看專案 <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn ghost" href="#contact">聯絡方式</a>
@@ -44,9 +45,20 @@
         <div class="wide"><dt>學校</dt><dd>國立臺灣科技大學</dd></div>
         <div class="half"><dt>學系</dt><dd>不分系學士班<br><span class="sep">・</span>分流資訊工程系</dd></div>
         <div class="half"><dt>年級</dt><dd>大二<br><span class="sep">・</span>114 學年度入學</dd></div>
-        <div class="wide"><dt>目的</dt><dd>尋找大學部專題指導教授</dd></div>
+        <div class="wide"><dt>關注</dt><dd>AI 代理・評估實驗・App 與服務</dd></div>
       </dl>
     </div>
+  </div>
+</section>
+
+<section class="section" aria-label="關鍵數字">
+  <div class="wrap">
+    <ul class="stats">
+      <li><span class="n">第 8 名</span><span class="l">第 47 屆國際技能競賽 冷作職類</span></li>
+      <li><span class="n">1,872 小時</span><span class="l">國手培訓</span></li>
+      <li><span class="n">10 張</span><span class="l">勞動部技術士證</span></li>
+      <li><span class="n">24 項</span><span class="l"><a href="projects.html">專案頁收錄的專案與作品</a></span></li>
+    </ul>
   </div>
 </section>
 
@@ -75,18 +87,24 @@
 
 <section class="section" aria-labelledby="dir-title">
   <div class="wrap">
-    <div class="sec-head"><h2 id="dir-title">專題想做的方向</h2><p class="note">方向仍在探索</p></div>
-    <div class="grid two">
+    <div class="sec-head"><h2 id="dir-title">關注的方向</h2><p class="note">從做過的專案整理</p></div>
+    <div class="grid three">
       <article class="card plain">
+        <p class="note idx">01</p>
         <h3>讓 AI 看懂畫面與訊號</h3>
-        <p>先用模型讀懂畫面或訊號，再交給 AI 決策，並量測效果。遊戲代理裡我訓練了階段、頭像、格子三種分類模型，把截圖變成精簡的狀態再交給語言模型；另一個專案用 ESP32 相機把影像送給模型分析。</p>
+        <p>先用模型讀懂畫面或訊號，再交給 AI 決策，並量測效果。遊戲代理裡訓練了階段、頭像、格子三種分類模型，把截圖變成精簡的狀態再交給語言模型；另一個專案用 ESP32 相機把影像送給模型分析。</p>
       </article>
       <article class="card plain">
+        <p class="note idx">02</p>
         <h3>用可重複的實驗評估 AI</h3>
-        <p>我習慣先定好怎麼量再下結論：本地模型用固定題組評分、轉寫模型比較會標明指標的限制、交易策略事先登記判斷標準並做隨機對照。結果不成立時照實記錄，例如價格預測模型前向驗證不成立就封存。</p>
+        <p>我習慣先定好怎麼量再下結論：本地模型用固定題組評分、轉寫模型比較會標明指標的限制、交易策略事先登記判斷標準並做隨機對照。結果不成立時照實記錄，例如價格預測模型的前向驗證不成立，就把它當成一項研究結果。</p>
+      </article>
+      <article class="card plain">
+        <p class="note idx">03</p>
+        <h3>把想法做成真的有人在用的工具</h3>
+        <p>除了研究，也做能實際使用的 App 與服務：驗光國考錯題本透過 TestFlight 給朋友使用，班表鬧鐘有另一位使用者，公車到站預測與影片下載則自架在 Windows 主機，手機經 Tailscale 連線。</p>
       </article>
     </div>
-    <p class="flow-note">以上是從自己做過的專案整理出的傾向，還沒有定題。希望在專題裡把其中一個方向做得更嚴謹。</p>
   </div>
 </section>
 
@@ -104,7 +122,7 @@
       <article class="card">
         <p class="note kind">語音轉寫・模型比較</p>
         <h3><a href="projects/lecture-tool.html">上課紀錄工具</a></h3>
-        <p>上課錄音在自己的 GPU 主機轉成逐字稿，再對照當週講義整理成上課紀錄。比較過多個轉寫模型後才選定。</p>
+        <p>上課錄音在家用 GPU 主機轉成逐字稿，再對照當週講義整理成上課紀錄。比較過多個轉寫模型後才選定。</p>
         <div class="measure"><p class="val">39/45</p><p class="cap">本機模型的關鍵詞命中（雲端對照 44/45）</p></div>
         <p class="more">看作法與限制 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
@@ -117,6 +135,30 @@
       </article>
     </div>
     <p class="flow-note">另有：<a href="projects.html#v2x">5G-V2X 路口大車右轉內輪差預警</a>，2026 行動通訊實務競賽決賽入圍。</p>
+    <article class="card plain wide showcase">
+      <div class="stack">
+        <p class="note kind">iOS App・2026-10 起・473 commits</p>
+        <h3>驗光國考錯題本</h3>
+        <p>爬取考選部歷屆試題轉成題庫；SwiftUI iOS App 含錯題本、間隔重複與弱點分析，加上 AI 出題解析伺服器，出題經重算與抽樣稽核。透過 TestFlight 給朋友使用。</p>
+        <p><a class="btn ghost" href="projects.html#cat-app">看全部 App <span class="arrow" aria-hidden="true">→</span></a></p>
+      </div>
+      <div class="phones">
+        <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"><figcaption>今日複習</figcaption></figure>
+        <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"><figcaption>單科成績與弱點分析</figcaption></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="tech-title">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="tech-title">用過的技術</h2><p class="note">依專案頁列出的項目整理</p></div>
+    <div class="tech">
+      <div><h3 class="note">語言與框架</h3><ul class="tags"><li>Python</li><li>Swift／SwiftUI</li><li>TypeScript／React</li><li>C++</li><li>FastAPI</li><li>Node</li></ul></div>
+      <div><h3 class="note">AI／機器學習</h3><ul class="tags"><li>LLM 代理</li><li>MCP</li><li>ONNX</li><li>OpenCV</li><li>Qwen3-ASR</li><li>llama.cpp</li><li>LSTM／GRU</li></ul></div>
+      <div><h3 class="note">服務與部署</h3><ul class="tags"><li>Windows 主機部署</li><li>Tailscale</li><li>SQLite</li><li>Supabase</li><li>Vercel</li><li>restic</li><li>yt-dlp／ffmpeg</li></ul></div>
+      <div><h3 class="note">行動與硬體</h3><ul class="tags"><li>iOS／watchOS</li><li>SwiftData</li><li>PencilKit</li><li>AlarmKit</li><li>TestFlight</li><li>ESP32S3</li><li>BLE</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -149,7 +191,7 @@
     <div class="contact">
       <div class="stack">
         <h2 id="contact-title">聯絡</h2>
-        <p class="lead">如果老師的實驗室有適合大學部專題的題目，很希望有機會當面向您請教。</p>
+        <p class="lead">不論是專案合作、實習或交流，都歡迎來信聯絡。</p>
         <p><a class="mail" href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a></p>
       </div>
       <p><a class="btn ghost" href="https://github.com/hezhen0816" rel="noopener">GitHub：hezhen0816 <span class="arrow" aria-hidden="true">→</span></a></p>
