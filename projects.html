@@ -5,11 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>專案｜賀震</title>
 <meta name="description" content="賀震的專案：AI 與研究、iOS／Mac App、後端與自架服務、系統與工具、競賽與課程專案。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="專案｜賀震">
+<meta property="og:description" content="賀震的專案：AI 與研究、iOS／Mac App、後端與自架服務、系統與工具、競賽與課程專案。">
+<meta property="og:url" content="https://hezhen0816.github.io/portfolio/projects.html">
+<meta property="og:image" content="https://hezhen0816.github.io/portfolio/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/sections.css">
 <script src="assets/js/motion.js"></script>
+<script src="assets/js/gallery.js" defer></script>
 <script src="assets/js/projects.js" defer></script>
 </head>
 <body>
@@ -30,15 +38,15 @@
 <main id="main">
 <div class="wrap page-head">
   <h1>做過的專案</h1>
-  <p class="lead">共 24 項，依性質分成五類。前三個有詳細頁，寫了架構、量測結果，以及目前還做不到的地方。</p>
+  <p class="lead">共 24 項，依性質分成五類。前三個有詳細頁，寫了架構、量測結果，以及目前還做不到的地方。commit 數為 2026-11 的快照。</p>
   <p class="lead disclosure">以 Claude Code、Codex 等 AI 代理協作開發：需求、架構與技術選擇、實驗設計與結果判讀由本人與 AI 討論後決定，程式碼主要由 AI 撰寫。</p>
-  <div class="filters" id="filters" role="group" aria-label="依類別篩選專案"></div>
 </div>
+<div class="filter-bar"><div class="wrap"><div class="filters" id="filters" role="group" aria-label="依類別篩選專案"></div></div></div>
 
 <section class="section cat-group" data-group="featured" data-label="" aria-labelledby="h-featured">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-featured">主要專案</h2><p class="note">架構・量測・限制</p></div>
-    <div class="pgrid">
+    <div class="pgrid tri">
       <article class="card" data-cat="ai">
         <p class="note kind">2026-11・340 commits</p>
         <h3><a href="projects/game-agent.html">遊戲代理</a></h3>
@@ -55,13 +63,28 @@
         <ul class="tags"><li>Swift／SwiftUI</li><li>Python</li><li>Qwen3-ASR</li></ul>
         <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
-      <article class="card" data-cat="backend">
+      <article class="card last-wide" data-cat="backend">
         <p class="note kind">兼職・2026.07 – 2026.09</p>
         <h3><a href="projects/internal-systems.html">大金防火科技 內部系統</a></h3>
         <p>報價、寄信、圖說、詢價、工務、會計等七個內部網頁系統，部署在公司 Windows 主機。</p>
         <div class="measure"><p class="val">34 <small>樘</small></p><p class="cap">圖說自動化實案試跑，與人工成品相符</p></div>
         <ul class="tags"><li>FastAPI</li><li>React／TypeScript</li><li>PWA</li></ul>
         <p class="more">詳細頁 <span class="arrow" aria-hidden="true">→</span></p>
+      </article>
+      <article class="card plain pc wide vid span-all" id="v2x" data-cat="comp">
+        <div class="stack">
+          <p class="note kind">2026・5 人隊</p>
+        <p><span class="flag">決賽入圍</span></p>
+        <h3>5G-V2X 路口大車右轉內輪差預警</h3>
+        <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
+        <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li></ul>
+        </div>
+        <figure class="clip">
+          <video muted loop playsinline controls preload="none" width="1280" height="720" poster="assets/video/v2x-3d-orbit-poster.jpg" aria-label="路口監控儀表板 3D 版的錄影：鏡頭緩慢環繞路口，大車停等讓行，機車進入掃掠區時畫面出現危險警示">
+            <source src="assets/video/v2x-3d-orbit.mp4" type="video/mp4">
+          </video>
+          <figcaption>路口監控儀表板 3D 版（SUMO 模擬畫面）：鏡頭環繞，大車右轉時機車進入掃掠區，畫面出現危險警示。</figcaption>
+        </figure>
       </article>
     </div>
   </div>
@@ -70,7 +93,7 @@
 <section class="section cat-group" data-group="ai" data-label="AI／研究" id="cat-ai" aria-labelledby="h-ai">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-ai">AI／研究</h2><p class="note">LLM 代理・評估・本地推論</p></div>
-    <div class="pgrid">
+    <div class="pgrid four">
       <article class="card plain pc" data-cat="ai">
         <p class="note kind">2026-05 起・573 commits</p>
         <h3>自動化交易研究平台</h3>
@@ -78,16 +101,16 @@
         <ul class="tags"><li>回測</li><li>隨機對照</li><li>前向紙上交易</li></ul>
       </article>
       <article class="card plain pc" data-cat="ai">
-        <p class="note kind">研究結果：前向驗證不成立</p>
-        <h3>crypto-forecast-lab</h3>
-        <p>用 LSTM／GRU 做價格預測與交易結果模型，再以前向驗證檢驗。結果是前向驗證不成立，照證據記錄為研究結論。</p>
-        <ul class="tags"><li>LSTM／GRU</li><li>前向驗證</li></ul>
-      </article>
-      <article class="card plain pc" data-cat="ai">
         <p class="note kind">2026-11</p>
         <h3>本地大模型實測</h3>
         <p>在 Mac 與 RTX 4060 筆電上跑 Qwen3.6-35B-A3B：量化、MTP、多模態，以及 llama.cpp RPC 跨機推論。附 bench 工具，用固定 12 題題組評分。</p>
         <ul class="tags"><li>llama.cpp</li><li>量化</li><li>跨機推論</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="ai">
+        <p class="note kind">研究結果：前向驗證不成立</p>
+        <h3>crypto-forecast-lab</h3>
+        <p>用 LSTM／GRU 做價格預測與交易結果模型，再以前向驗證檢驗。結果是前向驗證不成立，照證據記錄為研究結論。</p>
+        <ul class="tags"><li>LSTM／GRU</li><li>前向驗證</li></ul>
       </article>
       <article class="card plain pc" data-cat="ai">
         <p class="note kind">2026-11</p>
@@ -102,7 +125,7 @@
 <section class="section cat-group" data-group="app" data-label="iOS／Mac App" id="cat-app" aria-labelledby="h-app">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-app">iOS／Mac App</h2><p class="note">SwiftUI・TestFlight・原生 App</p></div>
-    <div class="pgrid">
+    <div class="pgrid tri">
       <article class="card plain pc wide span-all" data-cat="app">
         <div class="stack">
           <p class="note kind">2026-10 起・473 commits</p>
@@ -111,32 +134,41 @@
           <ul class="tags"><li>SwiftUI</li><li>TestFlight</li><li>AI 出題</li></ul>
         </div>
         <div class="phones">
-          <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"><figcaption>今日複習</figcaption></figure>
-          <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"><figcaption>單科成績與弱點分析</figcaption></figure>
+          <figure><button type="button" class="zoom" data-full="assets/img/optometry-today.png" aria-label="放大截圖"><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"></button><figcaption>今日複習</figcaption></figure>
+          <figure><button type="button" class="zoom" data-full="assets/img/optometry-subject.png" aria-label="放大截圖"><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"></button><figcaption>單科成績與弱點分析</figcaption></figure>
+        </div>
+      </article>
+      <article class="card plain pc wide span-all" data-cat="app">
+        <div class="stack">
+          <p class="note kind">2026-11 起・116 commits</p>
+        <h3>班表鬧鐘</h3>
+        <p>讀 iPhone 行事曆裡的班表，用 AlarmKit 在上班前設定系統鬧鐘；班表變動時自動重設。透過 TestFlight 給自己與另一位使用者使用。</p>
+          <ul class="tags"><li>SwiftUI</li><li>AlarmKit</li><li>TestFlight</li></ul>
+        </div>
+        <div class="phones">
+          <figure><button type="button" class="zoom" data-full="assets/img/projects/shift-alarm-main.webp" aria-label="放大截圖"><img src="assets/img/projects/shift-alarm-main.webp" width="736" height="1600" alt="班表鬧鐘主畫面：下一個鬧鐘的時間與未來 14 天的班表列表，每一班有開關" loading="lazy"></button><figcaption>下一個鬧鐘與未來班表</figcaption></figure>
+          <figure><button type="button" class="zoom" data-full="assets/img/projects/shift-alarm-routine.webp" aria-label="放大截圖"><img src="assets/img/projects/shift-alarm-routine.webp" width="736" height="1600" alt="班表鬧鐘展開出門流程：一個班底下依序排好起床、吃飯、收行李等多個鬧鐘" loading="lazy"></button><figcaption>出門流程展開成逐步鬧鐘</figcaption></figure>
         </div>
       </article>
       <article class="card plain pc" data-cat="app">
         <p class="note kind">2025-12 起・327 commits</p>
         <h3>Course Compass 修課羅盤</h3>
         <p>臺科大課程與學分規劃。React／Vite Web（Vercel）、SwiftUI iOS、FastAPI 後端、Supabase。</p>
+        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/coursecompass-thresholds.webp" aria-label="放大截圖"><img src="assets/img/projects/coursecompass-thresholds.webp" width="1600" height="1000" alt="修課羅盤的畢業門檻頁：國文、英文、通識等共同門檻的完成進度條，右上角顯示總學分" loading="lazy"></button><figcaption>畢業門檻頁（略過登入的示範模式，無個人資料）</figcaption></figure>
         <ul class="tags"><li>React／Vite</li><li>SwiftUI</li><li>FastAPI</li><li>Supabase</li></ul>
-      </article>
-      <article class="card plain pc" data-cat="app">
-        <p class="note kind">2026-11 起・116 commits</p>
-        <h3>班表鬧鐘</h3>
-        <p>讀 iPhone 行事曆裡的班表，用 AlarmKit 在上班前設定系統鬧鐘；班表變動時自動重設。透過 TestFlight 給自己與另一位使用者使用。</p>
-        <ul class="tags"><li>SwiftUI</li><li>AlarmKit</li><li>TestFlight</li></ul>
       </article>
       <article class="card plain pc" data-cat="app">
         <p class="note kind">2026-10 起・11 commits</p>
         <h3>注音練字</h3>
         <p>iPad App：看注音，用 Apple Pencil 在田字格寫 TOCFL 詞彙；寫錯的字進錯題本，以 FSRS-6 排複習。</p>
+        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/lianzi-practice.webp" aria-label="放大截圖"><img src="assets/img/projects/lianzi-practice.webp" width="1600" height="1112" alt="注音練字的練習畫面：上方是注音與例句，中間兩格田字格有手寫筆跡與淡色參考字，下方是「不會寫」與「寫對了」按鈕" loading="lazy"></button><figcaption>iPad 橫放的練習畫面（範例資料）</figcaption></figure>
         <ul class="tags"><li>SwiftData</li><li>PencilKit</li><li>FSRS-6</li></ul>
       </article>
-      <article class="card plain pc" data-cat="app">
+      <article class="card last-wide plain pc" data-cat="app">
         <p class="note kind">2026-10 起・57 commits</p>
         <h3>EpsonKit</h3>
         <p>替 Epson L3110 補上 macOS 官方驅動缺少功能的原生 App：列印（含手動雙面拆頁、小冊子編排）、佇列與狀態、掃描、影印、維護。</p>
+        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/epsonkit-print.webp" aria-label="放大截圖"><img src="assets/img/projects/epsonkit-print.webp" width="1600" height="1067" alt="EpsonKit 的列印頁：左側是預設組合，中間是 PDF 預覽，右側是紙張、品質、雙面與小冊子等設定" loading="lazy"></button><figcaption>列印頁（乾跑模式，未送印）</figcaption></figure>
         <ul class="tags"><li>macOS</li><li>原生 App</li></ul>
       </article>
     </div>
@@ -146,7 +178,7 @@
 <section class="section cat-group" data-group="backend" data-label="後端與自架服務" id="cat-backend" aria-labelledby="h-backend">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-backend">後端與自架服務</h2><p class="note">Windows 主機・Tailscale</p></div>
-    <div class="pgrid">
+    <div class="pgrid tri">
       <article class="card plain pc" data-cat="backend">
         <p class="note kind">2026-09 起・67 commits</p>
         <h3>回家時機：公車到站預測</h3>
@@ -156,13 +188,13 @@
       <article class="card plain pc" data-cat="backend">
         <p class="note kind">2026-10 起・43 commits</p>
         <h3>影片下載服務</h3>
-        <p>在 iPhone 網頁貼上影片連結，Windows 主機上的服務用 yt-dlp 與 ffmpeg 轉成單一 MP4，回傳後存入相簿。可產生限時公開分享連結（Tailscale Funnel），觀看頁顯示彈幕。</p>
-        <ul class="tags"><li>yt-dlp</li><li>ffmpeg</li><li>Tailscale Funnel</li></ul>
+        <p>在 iPhone 網頁貼上影片連結，Windows 主機上的服務用 yt-dlp 與 ffmpeg 轉成單一 MP4 並回傳，存入相簿。服務自架在 Windows 主機，手機經 Tailscale 連線。</p>
+        <ul class="tags"><li>yt-dlp</li><li>ffmpeg</li><li>Windows 主機</li><li>Tailscale</li></ul>
       </article>
-      <article class="card plain pc" data-cat="backend">
-        <p class="note kind">日立雲端 API 逆向</p>
+      <article class="card last-wide plain pc" data-cat="backend">
+        <p class="note kind">冷氣廠商雲端 API 逆向</p>
         <h3>冷氣控制</h3>
-        <p>逆向冷氣的雲端 API，建了資料採集（SQLite）、規則控制服務與 Mac 選單列 App。</p>
+        <p>逆向冷氣廠商的雲端 API，建了資料採集（SQLite）、規則控制服務與 Mac 選單列 App。</p>
         <ul class="tags"><li>SQLite</li><li>API 逆向</li><li>macOS 選單列</li></ul>
       </article>
     </div>
@@ -172,18 +204,28 @@
 <section class="section cat-group" data-group="tools" data-label="系統與工具" id="cat-tools" aria-labelledby="h-tools">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-tools">系統與工具</h2><p class="note">備份・逆向・小工具</p></div>
-    <div class="pgrid">
-      <article class="card plain pc" data-cat="tools">
-        <p class="note kind">2026-11・10 commits</p>
-        <h3>螢幕音量</h3>
-        <p>讓 HDMI／DisplayPort 外接螢幕在 macOS 能用系統音量鍵調音量。虛擬音訊驅動是 BlackHole 原始碼改名後建置（程式沒有改），專案本身的部分是 Swift 轉送程式（環形緩衝、路由決策），把聲音轉到螢幕。</p>
-        <ul class="tags"><li>Swift</li><li>BlackHole（改名建置）</li></ul>
-      </article>
+    <div class="pgrid two">
       <article class="card plain pc" data-cat="tools">
         <p class="note kind">加密備份</p>
         <h3>macbackup</h3>
         <p>restic 加密備份到兩處、append-only；還原時抽樣做 SHA-256 比對。</p>
         <ul class="tags"><li>restic</li><li>SHA-256</li></ul>
+      </article>
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">BLE 協定分析</p>
+        <h3>手指機器人 BLE 逆向</h3>
+        <p>封包擷取、ATT 寫入整理，以及 bleak 探測腳本。</p>
+        <ul class="tags"><li>BLE</li><li>bleak</li></ul>
+      </article>
+    </div>
+    <details class="more-tools">
+      <summary>更多小工具與早期作品（4）</summary>
+      <div class="pgrid four">
+      <article class="card plain pc" data-cat="tools">
+        <p class="note kind">2026-11・10 commits</p>
+        <h3>螢幕音量</h3>
+        <p>讓 HDMI／DisplayPort 外接螢幕在 macOS 能用系統音量鍵調音量。虛擬音訊驅動是 BlackHole 原始碼改名後建置（程式沒有改），專案本身的部分是 Swift 轉送程式（環形緩衝、路由決策），把聲音轉到螢幕。</p>
+        <ul class="tags"><li>Swift</li><li>BlackHole（改名建置）</li></ul>
       </article>
       <article class="card plain pc" data-cat="tools">
         <p class="note kind">2026-10・8 commits</p>
@@ -198,32 +240,20 @@
         <ul class="tags"><li>Node</li></ul>
       </article>
       <article class="card plain pc" data-cat="tools">
-        <p class="note kind">BLE 協定分析</p>
-        <h3>手指機器人 BLE 逆向</h3>
-        <p>封包擷取、ATT 寫入整理，以及 bleak 探測腳本。</p>
-        <ul class="tags"><li>BLE</li><li>bleak</li></ul>
-      </article>
-      <article class="card plain pc" data-cat="tools">
         <p class="note kind">2022 起</p>
         <h3>早期作品</h3>
         <p>2022 年寫的 Python 股價查詢小程式；向 BambuStudio 提交的繁體中文翻譯 PR #9705 已於 2026-02-24 合併。</p>
         <ul class="tags"><li>Python</li><li>開源貢獻</li></ul>
       </article>
     </div>
+    </details>
   </div>
 </section>
 
 <section class="section cat-group" data-group="comp" data-label="競賽與課程" id="cat-comp" aria-labelledby="h-comp">
   <div class="wrap">
     <div class="sec-head"><h2 id="h-comp">競賽與課程</h2><p class="note">2026・團隊</p></div>
-    <div class="pgrid">
-      <article class="card plain pc" id="v2x" data-cat="comp">
-        <p class="note kind">2026・5 人隊</p>
-        <p><span class="flag">決賽入圍</span></p>
-        <h3>5G-V2X 路口大車右轉內輪差預警</h3>
-        <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
-        <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li></ul>
-      </article>
+    <div class="pgrid two">
       <article class="card plain pc" data-cat="comp">
         <p class="note kind">2026・3 人隊</p>
         <p><span class="flag">大專組 優勝第五名</span></p>
@@ -240,10 +270,11 @@
   </div>
 </section>
 
+
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="note">賀震・臺科大不分系學士班（分流資訊工程系）</p>
     <p class="foot-links">
       <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
       <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>

@@ -5,10 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>上課紀錄工具｜賀震</title>
 <meta name="description" content="上課錄音自動轉逐字稿並對照講義整理成上課紀錄：架構、轉寫模型比較與限制。">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="上課紀錄工具｜賀震">
+<meta property="og:description" content="上課錄音自動轉逐字稿並對照講義整理成上課紀錄：架構、轉寫模型比較與限制。">
+<meta property="og:url" content="https://hezhen0816.github.io/portfolio/projects/lecture-tool.html">
+<meta property="og:image" content="https://hezhen0816.github.io/portfolio/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../assets/css/base.css">
 <link rel="stylesheet" href="../assets/css/layout.css">
 <link rel="stylesheet" href="../assets/css/components.css">
 <script src="../assets/js/motion.js"></script>
+<script src="../assets/js/gallery.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
@@ -32,6 +40,7 @@
   <h1>上課紀錄工具</h1>
   <p class="lead">上課錄音自動轉成逐字稿，再對照當週 Moodle 講義整理成上課紀錄。轉寫在自己的 GPU 主機上跑，錄音不上傳第三方。</p>
   <ul class="tags" style="margin-top:20px"><li>Swift／SwiftUI</li><li>Python</li><li>Qwen3-ASR</li><li>Claude API</li><li>Moodle 爬取</li></ul>
+  <p class="lead disclosure">以 Claude Code、Codex 等 AI 代理協作開發：需求、架構與技術選擇、實驗設計與結果判讀由本人與 AI 討論後決定，程式碼主要由 AI 撰寫。</p>
 </div>
 
 <div class="wrap stack-lg">
@@ -39,8 +48,8 @@
     <div class="stack">
       <h2 id="arch">架構</h2>
       <div class="phones">
-        <figure><img src="../assets/img/lecture-recording.png" width="460" height="535" alt="上課紀錄工具 iOS 版的錄音畫面：課程名稱、計時 0:00:12、音量波形，以及暫停與停止並上傳按鈕"><figcaption>iOS 版：錄音中</figcaption></figure>
-        <figure><img src="../assets/img/lecture-notes.png" width="460" height="1000" alt="上課紀錄工具 iOS 版的上課紀錄畫面：分成重點整理、逐字稿、重要事項三個分頁，重點整理以條列與表格呈現"><figcaption>iOS 版：整理後的上課紀錄</figcaption></figure>
+        <figure><button type="button" class="zoom" data-full="../assets/img/lecture-recording.png" aria-label="放大截圖"><img src="../assets/img/lecture-recording.png" width="460" height="535" alt="上課紀錄工具 iOS 版的錄音畫面：課程名稱、計時 0:00:12、音量波形，以及暫停與停止並上傳按鈕"></button><figcaption>iOS 版：錄音中（範例資料）</figcaption></figure>
+        <figure><button type="button" class="zoom" data-full="../assets/img/lecture-notes.webp" aria-label="放大截圖"><img src="../assets/img/lecture-notes.webp" width="600" height="1304" alt="上課紀錄工具 iOS 版的上課紀錄畫面：課程為經濟學原理，分成重點整理、逐字稿、重要事項三個分頁，重點整理為需求價格彈性的條列與表格"></button><figcaption>iOS 版：整理後的上課紀錄（範例資料）</figcaption></figure>
       </div>
     </div>
     <div>
@@ -93,7 +102,7 @@
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="note">賀震・臺科大不分系學士班（分流資訊工程系）</p>
     <p class="foot-links">
       <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
       <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>

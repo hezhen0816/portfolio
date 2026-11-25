@@ -35,11 +35,14 @@
     buttons.push(b);
   }
 
+  var details = Array.prototype.slice.call(document.querySelectorAll("details.more-tools"));
   function apply(id) {
     cards.forEach(function (c) { c.hidden = !(id === "all" || c.getAttribute("data-cat") === id); });
     groups.forEach(function (g) {
       g.hidden = !g.querySelector("[data-cat]:not([hidden])");
     });
+    // a filtered view should show its matches, so open a collapsed list that holds some
+    if (id !== "all") details.forEach(function (d) { if (d.querySelector("[data-cat]:not([hidden])")) d.open = true; });
     buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === id)); });
   }
 
@@ -48,10 +51,38 @@
   apply("all");
 
   // a deep link to a category or card should never land on a hidden one
-  function fromHash() {
+  function fromHash(scroll) {
     var id = decodeURIComponent(location.hash.slice(1));
-    var m = /^cat-(.+)$/.exec(id);
-    if (m && cats.some(function (c) { return c.id === m[1]; })) apply("all");
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (el.closest("[hidden]")) apply("all");
+    var d = el.closest("details");
+    if (d) d.open = true;
+    if (scroll) el.scrollIntoView();
   }
-  window.addEventListener("hashchange", fromHash);
+  window.addEventListener("hashchange", function () { fromHash(false); });
+  fromHash(false);
+})();
+
+/* V2X clip: plays (muted, looping) while visible, unless reduced motion is on.
+ * Native controls stay, and a pause by the viewer is respected until they press play again. */
+(function () {
+  "use strict";
+  var clips = document.querySelectorAll(".clip video");
+  if (!clips.length) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  Array.prototype.forEach.call(clips, function (v) {
+    var byScript = false, userPaused = false;
+    v.preload = "metadata";
+    v.addEventListener("pause", function () { if (!byScript && !v.ended) userPaused = true; byScript = false; });
+    v.addEventListener("play", function () { userPaused = false; });
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { if (!userPaused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+        else if (!v.paused) { byScript = true; v.pause(); }
+      });
+    }, { threshold: 0.35 }).observe(v);
+  });
 })();

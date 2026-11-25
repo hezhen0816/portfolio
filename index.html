@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>賀震｜臺科大資工大二・作品集</title>
 <meta name="description" content="賀震，臺科大不分系學士班大二（分流資訊工程系）。第 47 屆國際技能競賽冷作職類國手、第 8 名，做過 AI 代理、可重複的評估實驗，以及 iOS／Mac App 與自架服務。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="賀震｜臺科大資工大二・作品集">
+<meta property="og:description" content="賀震，臺科大不分系學士班大二（分流資訊工程系）。第 47 屆國際技能競賽冷作職類國手、第 8 名，做過 AI 代理、可重複的評估實驗，以及 iOS／Mac App 與自架服務。">
+<meta property="og:url" content="https://hezhen0816.github.io/portfolio/index.html">
+<meta property="og:image" content="https://hezhen0816.github.io/portfolio/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
@@ -32,21 +39,26 @@
     <div>
       <p class="note">自我介紹</p>
       <h1 id="hero-title"><span class="nb">從冷作國手</span><span class="nb">到資訊工程</span></h1>
-      <p class="lead">我是賀震，臺科大 不分系學士班（分流資訊工程系）大二。高職念配管科，2024 年以冷作職類國手身分參加第 47 屆國際技能競賽（法國里昂），獲第 8 名。進大學後轉向寫程式，做了幾個實際在運作、也留有量測紀錄的 AI 系統，以及日常使用的 App 與自架服務。</p>
+      <p class="lead">我是賀震，臺科大不分系學士班（分流資訊工程系）大二。高職念配管科，2024 年以冷作職類國手身分參加第 47 屆國際技能競賽（法國里昂），獲第 8 名。進大學後轉向資訊，和 AI 代理協作開發，做了幾個實際在運作、也留有量測紀錄的 AI 系統，以及日常使用的 App 與自架服務。</p>
       <p class="hero-actions">
         <a class="btn" href="projects.html">看專案 <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn ghost" href="#contact">聯絡方式</a>
       </p>
     </div>
-    <div class="hero-side">
-      <div class="portrait"><img src="assets/img/photo.jpg" width="544" height="700" alt="賀震的大頭照，穿深色西裝與白襯衫"></div>
-      <dl class="title-block">
-        <div class="wide"><dt>姓名</dt><dd>賀震</dd></div>
-        <div class="wide"><dt>學校</dt><dd>國立臺灣科技大學</dd></div>
-        <div class="half"><dt>學系</dt><dd>不分系學士班<br><span class="sep">・</span>分流資訊工程系</dd></div>
-        <div class="half"><dt>年級</dt><dd>大二<br><span class="sep">・</span>114 學年度入學</dd></div>
-        <div class="wide"><dt>關注</dt><dd>AI 代理・評估實驗・App 與服務</dd></div>
-      </dl>
+    <div class="hero-right">
+      <figure class="hero-photo">
+        <img src="assets/img/experience/cutting-sparks.webp" width="1400" height="1050" alt="高職時期，蹲在切割架旁用氣體切割管料，火花四濺" fetchpriority="high">
+        <figcaption>高職時期：氣體切割管料。</figcaption>
+      </figure>
+      <div class="hero-side">
+        <div class="portrait"><img src="assets/img/photo.jpg" width="544" height="700" alt="賀震的大頭照，穿深色西裝與白襯衫"></div>
+        <dl class="title-block">
+          <div class="wide"><dt>學校</dt><dd>國立臺灣科技大學</dd></div>
+          <div class="wide"><dt>學系</dt><dd>不分系學士班・分流資訊工程系</dd></div>
+          <div class="wide"><dt>年級</dt><dd>大二・114 學年度入學</dd></div>
+          <div class="wide"><dt>關注</dt><dd>AI 代理・評估實驗・App 與服務</dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
@@ -78,7 +90,7 @@
       </li>
       <li class="now">
         <span class="note when">2025 – 現在</span>
-        <h3>臺科大 不分系學士班（分流資訊工程系）</h3>
+        <h3>臺科大不分系學士班（分流資訊工程系）</h3>
         <p>國中自學 Python，進大學後正式轉到資訊。做了 AI 代理、語音轉寫與公司內部系統，並參加資訊類競賽。</p>
       </li>
     </ol>
@@ -91,18 +103,18 @@
     <div class="grid three">
       <article class="card plain">
         <p class="note idx">01</p>
-        <h3>讓 AI 看懂畫面與訊號</h3>
-        <p>先用模型讀懂畫面或訊號，再交給 AI 決策，並量測效果。遊戲代理裡訓練了階段、頭像、格子三種分類模型，把截圖變成精簡的狀態再交給語言模型；另一個專案用 ESP32 相機把影像送給模型分析。</p>
+        <h3><a href="projects/game-agent.html">讓 AI 看懂畫面與訊號</a></h3>
+        <p>先用模型把畫面或訊號變成精簡的狀態，再交給 AI 決策，並量測效果。</p>
       </article>
       <article class="card plain">
         <p class="note idx">02</p>
-        <h3>用可重複的實驗評估 AI</h3>
-        <p>我習慣先定好怎麼量再下結論：本地模型用固定題組評分、轉寫模型比較會標明指標的限制、交易策略事先登記判斷標準並做隨機對照。結果不成立時照實記錄，例如價格預測模型的前向驗證不成立，就把它當成一項研究結果。</p>
+        <h3><a href="projects.html#cat-ai">用可重複的實驗評估 AI</a></h3>
+        <p>先定好怎麼量再下結論，結果不成立也照實記錄。</p>
       </article>
       <article class="card plain">
         <p class="note idx">03</p>
-        <h3>把想法做成真的有人在用的工具</h3>
-        <p>除了研究，也做能實際使用的 App 與服務：驗光國考錯題本透過 TestFlight 給朋友使用，班表鬧鐘有另一位使用者，公車到站預測與影片下載則自架在 Windows 主機，手機經 Tailscale 連線。</p>
+        <h3><a href="projects.html#cat-app">把想法做成有人在用的工具</a></h3>
+        <p>驗光國考錯題本與班表鬧鐘，透過 TestFlight 給其他人使用。</p>
       </article>
     </div>
   </div>
@@ -111,7 +123,8 @@
 <section class="section" aria-labelledby="work-title">
   <div class="wrap">
     <div class="sec-head"><h2 id="work-title">精選作品</h2><a href="projects.html">全部專案 <span class="arrow" aria-hidden="true">→</span></a></div>
-    <div class="grid three">
+    <p class="lead disclosure">以 Claude Code、Codex 等 AI 代理協作開發：需求、架構與技術選擇、實驗設計與結果判讀由本人與 AI 討論後決定，程式碼主要由 AI 撰寫。</p>
+    <div class="grid two works">
       <article class="card">
         <p class="note kind">LLM 代理・畫面辨識</p>
         <h3><a href="projects/game-agent.html">遊戲代理</a></h3>
@@ -133,32 +146,15 @@
         <div class="measure"><p class="val">34 <small>樘</small></p><p class="cap">圖說自動化實案試跑，與人工成品相符</p></div>
         <p class="more">看作法與限制 <span class="arrow" aria-hidden="true">→</span></p>
       </article>
+      <article class="card">
+        <p class="note kind">競賽・5G-V2X</p>
+        <h3><a href="projects.html#v2x">路口大車右轉內輪差預警</a></h3>
+        <p>2026 行動通訊實務競賽 智慧數位應用組決賽入圍，五人隊，主導開發。</p>
+        <img class="card-img" src="assets/video/v2x-3d-orbit-poster.jpg" width="1280" height="720" alt="路口監控儀表板 3D 版畫面：從上方俯視的路口模擬，大車與機車在路口行駛" loading="lazy">
+        <p class="more">看專案與影片 <span class="arrow" aria-hidden="true">→</span></p>
+      </article>
     </div>
-    <p class="flow-note">另有：<a href="projects.html#v2x">5G-V2X 路口大車右轉內輪差預警</a>，2026 行動通訊實務競賽決賽入圍。</p>
-    <article class="card plain wide showcase">
-      <div class="stack">
-        <p class="note kind">iOS App・2026-10 起・473 commits</p>
-        <h3>驗光國考錯題本</h3>
-        <p>爬取考選部歷屆試題轉成題庫；SwiftUI iOS App 含錯題本、間隔重複與弱點分析，加上 AI 出題解析伺服器，出題經重算與抽樣稽核。透過 TestFlight 給朋友使用。</p>
-        <p><a class="btn ghost" href="projects.html#cat-app">看全部 App <span class="arrow" aria-hidden="true">→</span></a></p>
-      </div>
-      <div class="phones">
-        <figure><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"><figcaption>今日複習</figcaption></figure>
-        <figure><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"><figcaption>單科成績與弱點分析</figcaption></figure>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="tech-title">
-  <div class="wrap">
-    <div class="sec-head"><h2 id="tech-title">用過的技術</h2><p class="note">依專案頁列出的項目整理</p></div>
-    <div class="tech">
-      <div><h3 class="note">語言與框架</h3><ul class="tags"><li>Python</li><li>Swift／SwiftUI</li><li>TypeScript／React</li><li>C++</li><li>FastAPI</li><li>Node</li></ul></div>
-      <div><h3 class="note">AI／機器學習</h3><ul class="tags"><li>LLM 代理</li><li>MCP</li><li>ONNX</li><li>OpenCV</li><li>Qwen3-ASR</li><li>llama.cpp</li><li>LSTM／GRU</li></ul></div>
-      <div><h3 class="note">服務與部署</h3><ul class="tags"><li>Windows 主機部署</li><li>Tailscale</li><li>SQLite</li><li>Supabase</li><li>Vercel</li><li>restic</li><li>yt-dlp／ffmpeg</li></ul></div>
-      <div><h3 class="note">行動與硬體</h3><ul class="tags"><li>iOS／watchOS</li><li>SwiftData</li><li>PencilKit</li><li>AlarmKit</li><li>TestFlight</li><li>ESP32S3</li><li>BLE</li></ul></div>
-    </div>
+    <p class="flow-note">另有 iOS App：驗光國考錯題本、班表鬧鐘等，<a href="projects.html#cat-app">看全部 App</a>。</p>
   </div>
 </section>
 
@@ -201,7 +197,7 @@
 </main>
 <footer class="site-foot">
   <div class="wrap">
-    <p class="note">賀震・臺科大 不分系學士班（分流資訊工程系）</p>
+    <p class="note">賀震・臺科大不分系學士班（分流資訊工程系）</p>
     <p class="foot-links">
       <a href="mailto:B11430207@mail.ntust.edu.tw">B11430207@mail.ntust.edu.tw</a>
       <a href="https://github.com/hezhen0816" rel="noopener">github.com/hezhen0816</a>

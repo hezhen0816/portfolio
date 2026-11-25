@@ -47,4 +47,41 @@
 
 .pgrid .card.wide { align-items: start; }
 .pgrid .card.wide .phones { max-width: 300px; justify-self: end; width: 100%; }
-.filters { margin-top: 20px; }
+
+
+/* real screenshots and the V2X clip inside project cards */
+.shot, .clip { background: var(--sheet); border: 1px solid var(--line); padding: 6px; margin-top: 4px; }
+.shot img, .clip video { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--paper); }
+.clip video { aspect-ratio: 16 / 9; }
+.shot figcaption, .clip figcaption { margin-top: 6px; font-size: 0.8438rem; color: var(--muted); line-height: 1.5; }
+.pgrid .card.wide .clip { width: 100%; }
+
+/* project grid layouts: every row is filled at every width */
+.pgrid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) {
+  .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pgrid > .last-wide { grid-column: 1 / -1; }
+}
+@media (min-width: 1000px) {
+  .pgrid.tri { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pgrid > .last-wide { grid-column: auto; }
+}
+.pgrid .card.wide.vid { align-items: center; }
+@media (min-width: 720px) { .pgrid .card.wide.vid { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); } }
+.pgrid .card.wide.vid .clip { max-width: none; }
+
+/* sticky filter bar */
+.filter-bar { position: sticky; top: 0; z-index: 5; background: var(--paper); border-block: 1px solid var(--line); }
+.filter-bar .filters { margin-top: 0; padding-block: 6px; }
+@media (max-width: 639px) {
+  .filter-bar .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .filter-bar .chip { flex: none; }
+}
+.cat-group { scroll-margin-top: 72px; }
+[id="v2x"] { scroll-margin-top: 72px; }
+
+/* collapsed small tools */
+.more-tools { margin-top: 20px; }
+.more-tools > summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--blue); }
+.more-tools[open] > summary { margin-bottom: 12px; }
+.works .card .card-img { margin-top: 2px; }
