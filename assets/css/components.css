@@ -52,6 +52,8 @@ a:hover .arrow { transform: translateX(3px); }
 .card p { font-size: 0.9688rem; line-height: 1.75; color: var(--ink-2); }
 .card .more { margin-top: auto; padding-top: 8px; color: var(--blue); font-weight: 600; font-size: 0.9375rem; }
 .card.plain { padding: 20px 22px; }
+.repo { font-size: 0.9375rem; font-weight: 600; }
+.repo a { position: relative; z-index: 1; display: inline-flex; align-items: center; min-height: 44px; color: var(--blue); }   /* above the card-wide link overlay */
 .card .kind { color: var(--muted); }
 
 /* a measured result, set like a dimension callout */
