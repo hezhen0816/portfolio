@@ -47,6 +47,7 @@
 
 .pgrid .card.wide { align-items: start; }
 .pgrid .card.wide .phones { max-width: 300px; justify-self: end; width: 100%; }
+.pgrid .card.wide .phones.three { max-width: 420px; }
 
 
 /* real screenshots and the V2X clip inside project cards */
@@ -73,9 +74,12 @@
 /* sticky filter bar */
 .filter-bar { position: sticky; top: 0; z-index: 5; background: var(--paper); border-block: 1px solid var(--line); }
 .filter-bar .filters { margin-top: 0; padding-block: 6px; }
+.filter-bar .wrap { position: relative; }
 @media (max-width: 639px) {
   .filter-bar .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .filter-bar .chip { flex: none; }
+  /* right-edge fade: hints that the chip row scrolls */
+  .filter-bar .wrap::after { content: ""; position: absolute; top: 0; right: var(--gutter); bottom: 0; width: 44px; pointer-events: none; background: linear-gradient(to right, transparent, var(--paper)); }
 }
 .cat-group { scroll-margin-top: 72px; }
 [id="v2x"] { scroll-margin-top: 72px; }

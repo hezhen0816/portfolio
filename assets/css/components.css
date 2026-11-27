@@ -205,6 +205,18 @@ a:hover .arrow { transform: translateX(3px); }
 .phones figcaption { margin-top: 8px; font-size: 0.8438rem; color: var(--muted); line-height: 1.5; }
 .phones.one { grid-template-columns: minmax(0, 1fr); max-width: 260px; }
 .phones { align-items: start; }
+.phones.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.phones figure { margin: 0; }
+.phones video { display: block; width: 100%; height: auto; aspect-ratio: 400 / 870; border: 1px solid var(--line); background: var(--paper); }
+.phones.three figure { padding: 6px; }
+.phones.three figcaption { font-size: 0.78rem; }
+/* narrow screens: a swipeable strip, each phone wide enough to read, next one peeking */
+@media (max-width: 479px) {
+  .phones.three { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; }
+  .phones.three figure { flex: 0 0 62%; scroll-snap-align: start; padding: 8px; }
+  .phones.three figcaption { font-size: 0.8438rem; }
+}
+@media (min-width: 480px) { .phones.three { gap: 12px; } .phones.three figure { padding: 8px; } .phones.three figcaption { font-size: 0.8438rem; } }
 
 /* HTML diagram header/footer boxes */
 .dg-head { border: 1px solid var(--line-strong); padding: 10px 14px; font-weight: 600; text-align: center; margin-bottom: 10px; line-height: 1.5; }
@@ -222,12 +234,13 @@ a:hover .arrow { transform: translateX(3px); }
    Without it every element below is already in its final state.
    --------------------------------------------------------------------------- */
 
-/* project cards: a slight lift on hover and keyboard focus */
-.card:not(.plain) { transition: border-color .15s, transform .2s ease-out; }
+/* linked project cards: a slight lift on hover and keyboard focus (plain .pc cards are not clickable as a whole, so no lift) */
+.card:not(.plain) { transition: border-color .15s, transform .15s ease-out; }
 .card:not(.plain):hover { border-color: var(--line-strong); transform: translateY(-2px); }
 /* separate rule so a browser without :has() still keeps the hover rule */
 .card:not(.plain):has(:focus-visible) { border-color: var(--line-strong); transform: translateY(-2px); }
 @media (prefers-reduced-motion: reduce) {
+  .card:not(.plain) { transition: border-color .15s; }
   .card:not(.plain):hover { transform: none; }
   .card:not(.plain):has(:focus-visible) { transform: none; }
 }
@@ -312,3 +325,13 @@ dialog.lightbox .lb-next { right: 8px; }
 .shot .zoom, .phones .zoom { cursor: zoom-in; }
 .shot .zoom img, .phones .zoom img { border: 1px solid var(--line); }
 .card-img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line); margin-top: 4px; }
+
+/* optometry demo clip: whole video is a pause/play button */
+.vtoggle { display: block; position: relative; width: 100%; padding: 0; margin: 0; border: 0; background: none; cursor: pointer; }
+.vtoggle .vicon { position: absolute; right: 6px; bottom: 6px; width: 26px; height: 26px; display: grid; place-items: center; background: rgba(20, 26, 33, .82); color: #fff; border: 1px solid rgba(255, 255, 255, .5); pointer-events: none; }
+.vtoggle .vicon svg { fill: currentColor; display: block; }
+.vtoggle .i-pause, .vtoggle.is-playing .i-play { display: none; }
+.vtoggle.is-playing .i-pause { display: block; }
+.vtoggle:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.media-col { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 300px; justify-self: end; }
+.media-col .phones { max-width: none; }

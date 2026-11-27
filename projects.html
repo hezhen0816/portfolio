@@ -78,10 +78,11 @@
         <p><span class="flag">決賽入圍</span></p>
         <h3>5G-V2X 路口大車右轉內輪差預警</h3>
         <p>2026 行動通訊實務競賽 智慧數位應用組的參賽作品，由資工系老師指導。主導開發（repo 93 個 commit 中 79 個為本人）。決賽在 2026 年 12 月 12 日。</p>
-        <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li></ul>
+        <p>另做了 Three.js 的 3D 路口監控儀表板：依 SUMO 路網重建路口，顯示大車右轉的內輪差掃掠區，並有騎士與大車的跟隨視角。決賽簡報的模擬量測中，路側 MEC 比基準最貼近時刻早 2.3 秒發出危險警示。</p>
+        <ul class="tags"><li>free5GC</li><li>OAI-MEP</li><li>UERANSIM</li><li>SUMO</li><li>Three.js</li></ul>
         </div>
         <figure class="clip">
-          <video muted loop playsinline controls preload="none" width="1280" height="720" poster="assets/video/v2x-3d-orbit-poster.jpg" aria-label="路口監控儀表板 3D 版的錄影：鏡頭緩慢環繞路口，大車停等讓行，機車進入掃掠區時畫面出現危險警示">
+          <video muted loop playsinline controls preload="none" data-inview-play width="1280" height="720" poster="assets/video/v2x-3d-orbit-poster.jpg" aria-label="路口監控儀表板 3D 版的錄影：鏡頭緩慢環繞路口，大車停等讓行，機車進入掃掠區時畫面出現危險警示">
             <source src="assets/video/v2x-3d-orbit.mp4" type="video/mp4">
           </video>
           <figcaption>路口監控儀表板 3D 版（SUMO 模擬畫面）：鏡頭環繞，大車右轉時機車進入掃掠區，畫面出現危險警示。</figcaption>
@@ -135,9 +136,10 @@
           <ul class="tags"><li>SwiftUI</li><li>TestFlight</li><li>AI 出題</li></ul>
           <p class="repo"><a href="https://github.com/hezhen0816/optometry-review">GitHub 原始碼 <span class="arrow" aria-hidden="true">↗</span></a></p>
         </div>
-        <div class="phones">
+        <div class="phones three">
           <figure><button type="button" class="zoom" data-full="assets/img/optometry-today.png" aria-label="放大截圖"><img src="assets/img/optometry-today.png" width="600" height="1304" alt="驗光國考錯題本的今日複習畫面：今天答對題數、待複習題數與各科要再練的錯題數" loading="lazy"></button><figcaption>今日複習</figcaption></figure>
           <figure><button type="button" class="zoom" data-full="assets/img/optometry-subject.png" aria-label="放大截圖"><img src="assets/img/optometry-subject.png" width="600" height="1304" alt="驗光國考錯題本的單科成績畫面：模擬考分數走勢、新題與複習題正確率、較弱的單元" loading="lazy"></button><figcaption>單科成績與弱點分析</figcaption></figure>
+          <figure class="clip-phone"><button type="button" class="vtoggle" aria-label="成績頁與學習紀錄錄影，按下可暫停或播放"><video muted loop playsinline preload="none" data-inview-play width="400" height="870" poster="assets/video/optometry-stats-poster.jpg" aria-label="驗光國考錯題本的成績頁與學習紀錄畫面錄影（範例資料）：先是成績頁，接著切到學習紀錄"><source src="assets/video/optometry-stats.mp4" type="video/mp4"></video></button><figcaption>成績頁與學習紀錄（範例資料）</figcaption></figure>
         </div>
       </article>
       <article class="card plain pc wide span-all" data-cat="app">
@@ -147,16 +149,19 @@
         <p>讀 iPhone 行事曆裡的班表，用 AlarmKit 在上班前設定系統鬧鐘；班表變動時自動重設。透過 TestFlight 給自己與另一位使用者使用。</p>
           <ul class="tags"><li>SwiftUI</li><li>AlarmKit</li><li>TestFlight</li></ul>
         </div>
+        <div class="media-col">
         <div class="phones">
           <figure><button type="button" class="zoom" data-full="assets/img/projects/shift-alarm-main.webp" aria-label="放大截圖"><img src="assets/img/projects/shift-alarm-main.webp" width="736" height="1600" alt="班表鬧鐘主畫面：下一個鬧鐘的時間與未來 14 天的班表列表，每一班有開關" loading="lazy"></button><figcaption>下一個鬧鐘與未來班表</figcaption></figure>
           <figure><button type="button" class="zoom" data-full="assets/img/projects/shift-alarm-routine.webp" aria-label="放大截圖"><img src="assets/img/projects/shift-alarm-routine.webp" width="736" height="1600" alt="班表鬧鐘展開出門流程：一個班底下依序排好起床、吃飯、收行李等多個鬧鐘" loading="lazy"></button><figcaption>出門流程展開成逐步鬧鐘</figcaption></figure>
+        </div>
+        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/shift-alarm-design-vs-app.webp" aria-label="放大截圖"><img src="assets/img/projects/shift-alarm-design-vs-app.webp" width="649" height="568" alt="班表鬧鐘主畫面的左右對照：左邊是先畫好的可點擊設計稿，右邊是實作後的 App，兩者配置大致相同，都是下一個鬧鐘卡片在上、未來班表列表在下" loading="lazy"></button><figcaption>先畫可點擊設計稿（左），定案後實作（右）</figcaption></figure>
         </div>
       </article>
       <article class="card plain pc" data-cat="app">
         <p class="note kind">2025-12 起・327 commits</p>
         <h3>Course Compass 修課羅盤</h3>
         <p>臺科大課程與學分規劃。React／Vite Web（Vercel）、SwiftUI iOS、FastAPI 後端、Supabase。</p>
-        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/coursecompass-thresholds.webp" aria-label="放大截圖"><img src="assets/img/projects/coursecompass-thresholds.webp" width="1600" height="1000" alt="修課羅盤的畢業門檻頁（範例資料）：國文、英文、通識等共同門檻已有進度的進度條，右上角總學分 69 / 133，下方是匯入的雙主修應修科目表" loading="lazy"></button><figcaption>畢業門檻頁（範例資料，無個人資料）</figcaption></figure>
+        <figure class="shot"><button type="button" class="zoom" data-full="assets/img/projects/coursecompass-thresholds.webp" aria-label="放大截圖"><img src="assets/img/projects/coursecompass-thresholds.webp" width="1600" height="1000" alt="修課羅盤的畢業門檻頁（範例資料）：國文、英文、通識等共同門檻已有進度的進度條，右上角總學分 69 / 133，下方是匯入的雙主修應修科目表" loading="lazy"></button><figcaption>畢業門檻頁（範例資料）</figcaption></figure>
         <ul class="tags"><li>React／Vite</li><li>SwiftUI</li><li>FastAPI</li><li>Supabase</li></ul>
         <p class="repo"><a href="https://github.com/hezhen0816/course-compass">GitHub 原始碼 <span class="arrow" aria-hidden="true">↗</span></a></p>
       </article>
@@ -266,7 +271,7 @@
       <article class="card plain pc" data-cat="comp">
         <p class="note kind">114-2・實習課成績 A+</p>
         <h3>物件導向程式設計實習 團隊專案</h3>
-        <p>源石電路修復與五子棋兩個團隊專案，C++ 核心搭配 HTTP API 與 React 介面；我是主要負責人。</p>
+        <p>電路修復與五子棋兩個團隊專案，C++ 核心搭配 HTTP API 與 React 介面；我是主要負責人。</p>
         <ul class="tags"><li>C++</li><li>HTTP API</li><li>React</li></ul>
       </article>
     </div>

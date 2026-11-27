@@ -10,11 +10,43 @@
  *  - .bars, .ba               bars grow from 0, once; numbers count up (<= 700 ms)
  *  - .measure                 key measured numbers count up, once
  *  - .diagram svg, .flow      slow moving dashes on connectors, only while on screen
+ *  - video[data-inview-play]  muted clips play while >= 50% visible, pause when they leave;
+ *                             once the visitor touches one (controls, click, keys) it is left alone
  */
 (function () {
   "use strict";
   var root = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Pause/play toggle for clips that have no native controls. Runs for everyone,
+  // including reduced-motion visitors (who get no autoplay but may still press play).
+  function bindToggles() {
+    Array.prototype.forEach.call(document.querySelectorAll(".vtoggle"), function (b) {
+      var v = b.querySelector("video");
+      if (!v) return;
+      // Corner icon showing the current state; label follows the video so autoplay is reflected too.
+      var icon = document.createElement("span");
+      icon.className = "vicon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.innerHTML = '<svg viewBox="0 0 16 16" width="14" height="14"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg>';
+      b.appendChild(icon);
+      var base = (b.getAttribute("aria-label") || "").replace(/，按下可暫停或播放$/, "");
+      function sync() {
+        var playing = !v.paused;
+        b.classList.toggle("is-playing", playing);
+        b.setAttribute("aria-label", base + "，" + (playing ? "暫停影片" : "播放影片"));
+      }
+      v.addEventListener("play", sync);
+      v.addEventListener("pause", sync);
+      sync();
+      b.addEventListener("click", function () {
+        v._manual = true;
+        if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause();
+      });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bindToggles);
+  else bindToggles();
+
   if (reduce || !("IntersectionObserver" in window) || !window.requestAnimationFrame) return;
   root.classList.add("js-motion");
 
@@ -150,6 +182,31 @@
       entries.forEach(function (e) { e.target.classList.toggle("flow-on", e.isIntersecting); });
     });
     Array.prototype.forEach.call(document.querySelectorAll(".diagram, .flow"), function (el) { flowIO.observe(el); });
+
+    // In-view video: autoplay (muted) at >= 50% visible, pause when out of view.
+    // A visitor's own pointer/keyboard action on the video ends automation for it.
+    var vids = document.querySelectorAll("video[data-inview-play]");
+    if (vids.length) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = e.target;
+          if (v._manual) return;
+          if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          } else if (!v.paused) {
+            v.pause();
+          }
+        });
+      }, { threshold: [0, 0.5, 1] });
+      Array.prototype.forEach.call(vids, function (v) {
+        v.muted = true;
+        ["pointerdown", "keydown", "touchstart"].forEach(function (t) {
+          v.addEventListener(t, function () { v._manual = true; vio.unobserve(v); }, { passive: true });
+        });
+        vio.observe(v);
+      });
+    }
 
     // Printing or saving never shows a half-drawn page.
     window.addEventListener("beforeprint", function () {
